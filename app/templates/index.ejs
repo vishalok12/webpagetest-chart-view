@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Performance Chart</title>
+    <style type="text/css">
+        #url-list {
+            width: 300px;
+            background: white;
+            border: 1px solid #D8D8D8;
+            color: #3b3b3b;
+            font-size: 16px;
+            padding: 6px;
+        }
+    </style>
+  </head>
+  <body>
+    <select id="url-list">
+        <option value="" disabled selected>Select URL for Analytics</option>
+        <% for(var i=0; i<urls.length; i++) {%>
+            <option><%= urls[i] %></option>
+        <% } %>
+    </select>
+    <div id="container" style="height: 400px"></div>
+    <div id="repeat-view-container" style="margin-top:60px; height: 400px"></div>
+    <script src="/bower_components/jquery/jquery.js"></script>
+    <script src="/bower_components/highcharts/highcharts.js"></script>
+    <script src="/scripts/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "site-performance",
+  "version": "0.1.0",
+  "description": "Checks site performance using webpagetest.org APIs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishalok12/site-performance.git"
+  },
+  "keywords": [
+    "webpagetest",
+    "performance",
+    "automation"
+  ],
+  "author": "Vishal Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishalok12/site-performance/issues"
+  },
+  "homepage": "https://github.com/vishalok12/site-performance#readme",
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "jsonfile": "^2.0.1",
+    "mkdirp": "^0.5.1",
+    "webpagetest": "^0.3.3"
+  }
+}

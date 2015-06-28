@@ -1,0 +1,22 @@
+{
+  "name": "sitePerformance",
+  "main": "index.js",
+  "version": "0.1.0",
+  "authors": [
+    "Vishal Kumar <vishal.rgiit@gmail.com>"
+  ],
+  "description": "Render Performance Charts",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9",
+    "highcharts": "~4.1.5"
+  }
+}
