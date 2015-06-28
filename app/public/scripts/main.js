@@ -45,10 +45,10 @@
                 text: options.title || 'Chart View'
             },
             xAxis: {
+                type: 'datetime',
                 labels: {
                     formatter: function () {
-                        var monthStr = Highcharts.dateFormat('%b %d, %Y', this.value);
-                        return monthStr;
+                        return Highcharts.dateFormat('%b %d, %Y', this.value);
                     }
                 },
                 categories: xAxisCategories,
@@ -62,7 +62,9 @@
                 }
             },
             tooltip: {
-                valueSuffix: 'ms'
+                shared: true,
+                valueSuffix: 'ms',
+                xDateFormat: '%b %d, %Y'
             },
             series: [{
                 name: 'Load',
