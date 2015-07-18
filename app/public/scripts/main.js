@@ -28,16 +28,16 @@
             return value.runTime;
         });
         var loadData = data.map(function(value) {
-            return value.runs[1][viewType].loadTime;
+            return value.average[viewType].loadTime;
         });
         var domLoadData = data.map(function(value) {
-            return value.runs[1][viewType].docTime;
+            return value.average[viewType].docTime;
         });
         var fullyLoadData = data.map(function(value) {
-            return value.runs[1][viewType].fullyLoaded;
+            return value.average[viewType].fullyLoaded;
         });
         var visuallyCompleteData = data.map(function(value) {
-            return value.runs[1][viewType].visualComplete;
+            return value.average[viewType].visualComplete;
         });
 
         $(chartContainerSelector).highcharts({

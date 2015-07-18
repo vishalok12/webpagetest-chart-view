@@ -76,8 +76,19 @@ function getTestResults(testId) {
         return console.log('data is null for', testId);
     }
 
-    var viewData = ['docTime', 'loadTime', 'fullyLoaded', 'SpeedIndex', 'visualComplete', 'bytesIn', 'bytesInDoc', 'requestsDoc', 'domElements'];
-    var fields = ['id', 'url', 'location', 'connectivity', {'runs': [{'1': [{'firstView': viewData}, {'repeatView': viewData}]}]}];
+    var viewData = ['docTime', 'loadTime', 'fullyLoaded', 'SpeedIndex', 'visualComplete', 'bytesIn', 'bytesInDoc', 'requestsDoc', 'domElements', 'render', 'firstPaint', 'TTFB'];
+    var views = [{'firstView': viewData}, {'repeatView': viewData}];
+    var runsField = {'runs': []};
+    var testRuns = config.options.runs;
+
+    for (var i = 0; i < testRuns; i++) {
+        var obj = {};
+        obj[i + 1] = views;
+        runsField.runs.push(obj);
+    }
+
+    var fields = ['id', 'url', 'location', 'connectivity', {'average': views}, runsField];
+
     var usefulData = extractRequiredData(resp.data, fields);
     usefulData.runTime = Date.now();
     var directoryPathToSaveData = __dirname + '/app/public/data/' + getDirectoryPathFromURL(resp.data.url);
