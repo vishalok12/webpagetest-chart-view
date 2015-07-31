@@ -13,6 +13,7 @@ app.get('/', function (req, res) {
 app.set('views', __dirname + '/templates');
 app.set('view engine', 'ejs');
 
+app.use(express.static(__dirname + '/dist'));
 app.use(express.static(__dirname + '/public'));
 
 var server = app.listen(3000, function () {

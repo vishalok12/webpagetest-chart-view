@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    $(function () {
+    $( () => {
         $('#url-list').on('change', loadDataAndRenderChart);
     });
 
@@ -11,8 +11,12 @@
         getData(url, renderChart);
     }
 
+    function getPath(url) {
+        return url.replace(/(http|https):\/\//, '');
+    }
+
     function getData(url, callback) {
-        $.get('/data/' + getPath(url) + '/data.json', function(data) {
+        $.get('/data/' + getPath(url) + '/data.json', (data) => {
             callback(data);
         });
     }
@@ -23,22 +27,11 @@
     }
 
     function renderChartView(data, viewType, chartContainerSelector, options) {
-        var xAxisCategories = data.map(function(value) {
-            // var d = new Date(value.runTime);
-            return value.runTime;
-        });
-        var loadData = data.map(function(value) {
-            return value.average[viewType].loadTime;
-        });
-        var domLoadData = data.map(function(value) {
-            return value.average[viewType].docTime;
-        });
-        var fullyLoadData = data.map(function(value) {
-            return value.average[viewType].fullyLoaded;
-        });
-        var visuallyCompleteData = data.map(function(value) {
-            return value.average[viewType].visualComplete;
-        });
+        var xAxisCategories = data.map( value => value.runTime );
+        var loadData = data.map( value => value.average[viewType].loadTime );
+        var domLoadData = data.map(value => value.average[viewType].docTime );
+        var fullyLoadData = data.map( value => value.average[viewType].fullyLoaded );
+        var visuallyCompleteData = data.map( value => value.average[viewType].visualComplete );
 
         $(chartContainerSelector).highcharts({
             title: {
@@ -47,7 +40,7 @@
             xAxis: {
                 type: 'datetime',
                 labels: {
-                    formatter: function () {
+                    formatter() {
                         return Highcharts.dateFormat('%b %d, %Y', this.value);
                     }
                 },
@@ -83,10 +76,6 @@
                 data: visuallyCompleteData
             }]
         });
-    }
-
-    function getPath(url) {
-        return url.replace(/(http|https):\/\//, '');
     }
 
 })();
