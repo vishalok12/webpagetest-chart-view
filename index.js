@@ -76,7 +76,7 @@ function getTestResults(testId) {
         return console.log('data is null for', testId);
     }
 
-    var viewData = ['docTime', 'loadTime', 'fullyLoaded', 'SpeedIndex', 'visualComplete', 'bytesIn', 'bytesInDoc', 'requestsDoc', 'domElements', 'render', 'firstPaint', 'TTFB'];
+    var viewData = config.viewFields;
     var views = [{'firstView': viewData}, {'repeatView': viewData}];
     var runsField = {'runs': []};
     var testRuns = config.options.runs;

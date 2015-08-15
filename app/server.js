@@ -5,9 +5,13 @@ var app = express();
 var config = require('../config');
 
 app.get('/', function (req, res) {
-  res.render('index', {
-      urls: config.url
-  });
+    // get all data fields
+    var fields = getAllFields();
+
+    res.render('index', {
+        fields: fields,
+        urls: config.url
+    });
 });
 
 app.set('views', __dirname + '/templates');
@@ -24,3 +28,7 @@ var server = app.listen(3000, function () {
   console.log('Example app listening at http://%s:%s', host, port);
 
 });
+
+function getAllFields() {
+    return config.viewFields;
+}

@@ -3,6 +3,7 @@ module.exports = {
     'https://www.wordtray.com',
     'https://www.wordtray.com/login'
   ],
+  viewFields: ['docTime', 'loadTime', 'fullyLoaded', 'SpeedIndex', 'visualComplete', 'bytesIn', 'bytesInDoc', 'requestsDoc', 'domElements', 'render', 'firstPaint', 'TTFB'],
 
   // get options from https://github.com/marcelduran/webpagetest-api#test-works-for-runtest-method-only
   options: {
