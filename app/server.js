@@ -3,6 +3,7 @@
 var express = require('express');
 var app = express();
 var config = require('../config');
+var PORT = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
     // get all data fields
@@ -20,7 +21,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/dist'));
 app.use(express.static(__dirname + '/public'));
 
-var server = app.listen(3000, function () {
+var server = app.listen(PORT, function () {
 
   var host = server.address().address;
   var port = server.address().port;
