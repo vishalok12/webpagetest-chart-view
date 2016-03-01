@@ -11,7 +11,7 @@ var statusCheckPeriod = 10000;  // assuming test completion time to be 30 second
 var pendingStatusCheckPeriod = 30000;  // assuming test completion time to be 30 seconds.
 
 for (var i = 0; i < config.url.length; i++) {
-  wpt.runTest(config.url[i], config.options, getTestDetails);
+  wpt.runTest(config.url[i].url, config.options, getTestDetails);
 }
 
 function getTestDetails(err, resp) {

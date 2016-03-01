@@ -1,7 +1,7 @@
 module.exports = {
   url: [
-    'https://www.wordtray.com',
-    'https://www.wordtray.com/login'
+    {url: 'https://www.wordtray.com', name: 'Home Page'},
+    {url: 'https://www.wordtray.com/login', name: 'Login Page'}
   ],
   viewFields: ['docTime', 'loadTime', 'fullyLoaded', 'SpeedIndex', 'visualComplete', 'bytesIn', 'bytesInDoc', 'requestsDoc', 'domElements', 'render', 'firstPaint', 'TTFB'],
 

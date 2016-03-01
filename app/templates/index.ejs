@@ -21,7 +21,11 @@
     <select id="url-list">
         <option value="" disabled selected>Select URL for Analytics</option>
         <% for(var i=0; i<urls.length; i++) {%>
-            <option><%= urls[i] %></option>
+            <% if(urls[i].name){ %>
+                <option value="<%= urls[i].url %>"><%= urls[i].name %></option>
+            <% } else { %>
+                <option><%= urls[i].url %></option>
+            <% } %>
         <% } %>
     </select>
     <select multiple="multiple" id="graph-fields">
